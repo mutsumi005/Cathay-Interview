@@ -124,4 +124,5 @@ with gr.Blocks(title="保險 RAG 系統") as demo:
 
 # 啟動時自動開啟瀏覽器
 if __name__ == "__main__":
+
     demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
