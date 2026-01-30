@@ -111,18 +111,17 @@ def ask_insurance(question):
 # 6. 啟動介面
 # ======================
 with gr.Blocks(title="保險 RAG 系統") as demo:
-    gr.Markdown("# 🧳 輕量版保險條款問答系統\n針對 6GB 顯存優化 (Qwen2-1.5B) - 已修復重複問題")
+    gr.Markdown("# 🧳 輕量版保險條款問答系統\n針對 6GB 顯存優化 (Qwen2-1.5B) ")
     with gr.Row():
         with gr.Column(scale=1):
             q = gr.Textbox(label="請輸入您的問題", placeholder="例如：行李遺失後該如何申請理賠？")
             btn = gr.Button("查詢條款", variant="primary")
         with gr.Column(scale=2):
-            ans = gr.Textbox(label="📌 顧問回答", lines=10)
+            ans = gr.Textbox(label="📌 系統回答", lines=10)
             src = gr.Textbox(label="📄 依據條款", lines=5)
     
     btn.click(ask_insurance, inputs=q, outputs=[ans, src])
 
 # 啟動時自動開啟瀏覽器
 if __name__ == "__main__":
-
-    demo.launch(server_name="0.0.0.0", server_port=7860, share=False)
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
